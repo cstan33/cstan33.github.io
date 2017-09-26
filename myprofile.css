@@ -1,18 +1,36 @@
 /*Imports font from https://fonts.google.com/*/
 @import
 url('https://fonts.googleapis.com/css?family=Lato:100,400,900');
+.my-photo {
+  
+    background-image: url('http://ubuntupodcast.net/wp-content/uploads/2013/08/Web-Design-Tips.jpg');
 
 
-my-parallax{ 
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover; 
+     
+};
+
+
+
+.text1{
+    color: rgb(29, 226, 23);
+    text-decoration: center;
+    font-size: 4rem;
+}
+/*my-photo{ 
     min-height: 80vh;
-    background-image: url('my_photo.jpg');
+    background-image: url('http://ubuntupodcast.net/wp-content/uploads/2013/08/Web-Design-Tips.jpg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
     background-attachment: fixed;
     }
+
 /*1. Change the background color to: white*/
-    .my-body{
+  /*  .my-body{
         background-color: white);
         }
 
@@ -22,4 +40,4 @@ my-parallax{
     height: 100px;
     
  
-        }
+        }*/

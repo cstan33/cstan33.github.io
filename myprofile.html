@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <title>CS Profile Page</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,43 +11,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
         crossorigin="anonymous">
         <link rel="stylesheet" href="myprofile.css">
-
-    <!-- style type="text/css">
-            * {
-                border: 1px dotted blue;
-            }
-        </style -->
-
-    <body>
-         <<div class="control_width">
-                <div class="control_width">
-                        <img class="" src="my_photo.jpg">
-                    </div>-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css">
+    </head>
     
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-4">
-        
-            </div>
-                </div>
-    
-                <!--<div class="control_height">
+    <!--<div class="control_height">
                     <img class="" src="http://ubuntupodcast.net/wp-content/uploads/2013/08/Web-Design-Tips.jpg">
                 </div>-->
+     
 
+        <body class="my-photo" >
+              <!--img class="" src="http://ubuntupodcast.net/wp-content/uploads/2013/08/Web-Design-Tips.jpg"-->  
+              <div class="container-fluid">
+                                
             <div class="row justify-content-sm-center justify-content-md-end">
                 <div class="col-sm-10 col-md-6 col-lg-4 my-text">
              
-
-
+             
                     <h3>Hello my name is
                         <h4>Chuan Seng</h4>
                     </h3>
 
                     <ul>
                         <li>I attended the ISS-NUS Coder In You class</li>
-                        <li>Aiming to join Full Stack Software Programme</li>
 
 
                     </ul>
@@ -57,7 +43,9 @@
                     <ol>repository:</ol>
                     <ol>cstan33@github.io</ol>
                       
-                </ul>                 
+                </ul>    
+            </div>
+                <div></div>
                     <form action="https://script.google.com/macros/s/AKfycbyceN8kBHTUpt7O-5YWutJPnS_fXvG0buOtYe2_BYrIBjSqn2mM/exec" method="POST">
                         <div class="form-group">
                             <label for="name-id">Name</label>
@@ -84,7 +72,7 @@
                             </div>
 
                     </form>
-
+                     
 
 
 
@@ -94,6 +82,7 @@
 
         </div>
     </div>
+
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -105,58 +94,54 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"></script>
-
-    <script >
+<Script>$(function () {
     
-    $(function () {
-
-    // on submitting the form
-    $('form').submit(function (event) {
-        // prevent the default action of reloading the page
-        event.preventDefault();
-
-        var sendData = {};
-        $(event.target.nodeName + ' :input').each(function(){
-            sendData[this.name] = $(this).val();
+        // on submitting the form
+        $('form').submit(function (event) {
+            // prevent the default action of reloading the page
+            event.preventDefault();
+    
+            var sendData = {};
+            $(event.target.nodeName + ' :input').each(function(){
+                sendData[this.name] = $(this).val();
+            });
+    
+            var posting = $.ajax({
+                type: 'POST',
+                url: $(event.target.nodeName).prop('action'),
+                data: sendData
+            });
+    
+            posting.done(function (response) {
+                console.log(response);
+                $('#alert-id').prop('hidden', false);
+                $('form :input').each(function(){
+                    $(this).val('');
+                })
+            });
+            posting.fail(function (response) {
+                console.log(response);
+            });
         });
-
-        var posting = $.ajax({
-            type: 'POST',
-            url: $(event.target.nodeName).prop('action'),
-            data: sendData
-        });
-
-        posting.done(function (response) {
-            console.log(response);
-            $('#alert-id').prop('hidden', false);
-            $('form :input').each(function(){
-                $(this).val('');
-            })
-        });
-        posting.fail(function (response) {
-            console.log(response);
-        });
-    });
-
-// RESPONSE ALERT WINDOW-------------------------------------------------------------------------------
-/* include the following HTML to use:
-<div class="form-group">
-    <button type="submit" class="btn btn-default my-btn form-control" id="submit-id">submit</button>                   
-    <div class="alert alert-danger alert-dismissible fade in" hidden id="alert-id">
-        <button type="button" class="close" id="close-id"><span>&times;</span></button>
-        Thank you! We'll get in touch.
+    
+    // RESPONSE ALERT WINDOW-------------------------------------------------------------------------------
+    /* include the following HTML to use:
+    <div class="form-group">
+        <button type="submit" class="btn btn-default my-btn form-control" id="submit-id">submit</button>                   
+        <div class="alert alert-danger alert-dismissible fade in" hidden id="alert-id">
+            <button type="button" class="close" id="close-id"><span>&times;</span></button>
+            Thank you! We'll get in touch.
+        </div>
     </div>
-</div>
-
-*/
-
-    // on clicking the X button
-    $('#close-id').click(function(){
-        // hide the alert panel by adding the hidden property
-        $('#alert-id').prop('hidden', true);
-    });
-
-});</script>   
-    </body>
+    */
+    
+        // on clicking the X button
+        $('#close-id').click(function(){
+            // hide the alert panel by adding the hidden property
+            $('#alert-id').prop('hidden', true);
+        });
+    
+    });</Script>
+   </body>
 
 </head>
