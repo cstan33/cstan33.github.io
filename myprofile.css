@@ -1,0 +1,25 @@
+/*Imports font from https://fonts.google.com/*/
+@import
+url('https://fonts.googleapis.com/css?family=Lato:100,400,900');
+
+
+my-parallax{ 
+    min-height: 80vh;
+    background-image: url('my_photo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    }
+/*1. Change the background color to: white*/
+    .my-body{
+        background-color: white);
+        }
+
+        .control_height{
+          
+    width:  150px;
+    height: 100px;
+    
+ 
+        }

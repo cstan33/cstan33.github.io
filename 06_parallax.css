@@ -1,0 +1,8 @@
+.my-parallax{
+    min-height: 80vh;
+    background-image: url('galexy_background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    background-attachment: fixed;
+    }
